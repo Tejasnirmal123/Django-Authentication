@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+{% load static %}
+
+{% block body_block %}
+
+<div class="container my-5">
+    {% if registered %}
+    <div class="mb-3 row">
+        <h1>THANK YOU FOR REGESTERING!</h1>
+    </div>
+    {% else %}
+
+    <div class="shadow p-4 mb-5 bg-body rounded">
+        
+        <h1>Register Here !</h1>
+        
+    
+        
+
+        <div class="mb-3 row">
+        <form  enctype="multipart/form-data"method="POST">
+            {% csrf_token %}
+            {{ user_form.as_p}}
+            {{ profile_form.as_p }}
+            <input type="submit" class="btn btn-primary" value="Register"> 
+        </div>
+
+        </form>
+    </div>
+    
+    {% endif %}
+</div>
+
+    
+
+</body>
+</html>
+{% endblock %}
